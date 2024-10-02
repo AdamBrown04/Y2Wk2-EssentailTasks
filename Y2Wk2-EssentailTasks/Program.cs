@@ -160,6 +160,29 @@ switch (option)
             }
         }
 
+        bool identical = true;
+
+        if(stringsA.Count == stringsB.Count)
+        {
+            for(int x = 0; x < stringsA.Count; x++)
+            {
+                if (stringsA[x] != stringsB[x])
+                {
+                    Console.WriteLine("Lists are not identical");
+                    identical = false;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("Lists are not identical");
+        }
+
+        if (identical)
+        {
+            Console.WriteLine("The lists are identical");
+        }
 
         break;
 }
