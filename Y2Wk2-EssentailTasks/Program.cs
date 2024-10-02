@@ -1,6 +1,6 @@
 ﻿using System;
 
-Console.WriteLine("What program do you want to run? \n1)guest list");
+Console.WriteLine("What program do you want to run? \n1)guest list \n2)English to French translator");
 int option = Convert.ToInt32(Console.ReadLine());
 
 Console.Clear();
@@ -78,6 +78,45 @@ switch (option)
             else if(userInput == 5)
             {
                 break;
+            }
+
+        }
+        break;
+    case 2:
+        Dictionary<string, string> translator = new Dictionary<string, string>();
+        translator.Add("hello", "bonjour");
+        translator.Add("rain", "pluie");
+        translator.Add("car", "voiture");
+        translator.Add("fish", "poisson");
+
+        Console.WriteLine("When you want the program to finish input 'end'");
+
+        while (true)
+        {
+            Console.Write("What word would you like to traslate? ");
+            string userInput = Console.ReadLine().ToLower();
+
+            if (userInput == "end")
+            {
+                break;
+            }
+            else
+            {
+                if (translator.ContainsKey(userInput))
+                {
+                    Console.WriteLine(translator[userInput]);
+                }
+                else
+                {
+                    Console.Write($"{userInput} is not currently in the dictionary, would you like to add a translation? Y/N ");
+                    string addNewWord = Console.ReadLine().ToUpper();
+
+                    if (addNewWord == "Y")
+                    {
+                        Console.Write($"Enter the translation of {userInput}: ");
+                        translator.Add(userInput, Console.ReadLine().ToLower());
+                    }
+                }
             }
 
         }
