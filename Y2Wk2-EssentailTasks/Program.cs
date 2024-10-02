@@ -1,6 +1,6 @@
 ﻿using System;
 
-Console.WriteLine("What program do you want to run? \n1)guest list \n2)English to French translator \n3)Compare lists");
+Console.WriteLine("What program do you want to run? \n1)guest list \n2)English to French translator \n3)Compare lists \n4)Remove outside 3 numbers");
 int option = Convert.ToInt32(Console.ReadLine());
 
 Console.Clear();
@@ -183,6 +183,34 @@ switch (option)
         {
             Console.WriteLine("The lists are identical");
         }
+
+        break;
+    case 4:
+        List<int> numbers = new List<int>();
+
+        Console.WriteLine("After a minimum of 7 entries, once you want to finish inputting numbers enter END");
+        int numbersEntered = 0;
+
+        while (true)
+        {
+            Console.Write("Enter a number: ");
+            string inputedNumber = Console.ReadLine();
+
+            if(numbersEntered < 7 && inputedNumber.ToUpper() == "END")
+            {
+                Console.WriteLine("You have not reached the minimum amount of inputs yet");
+            }
+            else if(inputedNumber.ToUpper() == "END")
+            {
+                break;
+            }
+            else
+            {
+                numbers.Add(Convert.ToInt32(inputedNumber));
+                numbersEntered++;
+            }
+        }
+
 
         break;
 }
