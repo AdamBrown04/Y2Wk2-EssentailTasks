@@ -1,6 +1,6 @@
 ﻿using System;
 
-Console.WriteLine("What program do you want to run? \n1)guest list \n2)English to French translator");
+Console.WriteLine("What program do you want to run? \n1)guest list \n2)English to French translator \n3)Compare lists");
 int option = Convert.ToInt32(Console.ReadLine());
 
 Console.Clear();
@@ -120,5 +120,46 @@ switch (option)
             }
 
         }
+        break;
+    case 3:
+        List<string> stringsA = new List<string>();
+        List<string> stringsB = new List<string>();
+
+        Console.WriteLine("Enter END when you want the data input to stop");
+
+        Console.WriteLine("List 1:");
+
+        while (true)
+        {
+            Console.Write("Enter anything: ");
+            string inputA = Console.ReadLine();
+
+            if (inputA.ToUpper() == "END")
+            {
+                break;
+            }
+            else
+            {
+                stringsA.Add(inputA);
+            }
+        }
+
+        Console.WriteLine("List 2:");
+        while (true)
+        {
+            Console.Write("Enter anything: ");
+            string inputB = Console.ReadLine();
+
+            if (inputB.ToUpper() == "END")
+            {
+                break;
+            }
+            else
+            {
+                stringsB.Add(inputB);
+            }
+        }
+
+
         break;
 }
