@@ -211,6 +211,18 @@ switch (option)
             }
         }
 
+        for(int x = 0; x < 3; x++)
+        {
+            int max = numbers.Max();
+            int min = numbers.Min();
 
+            numbers.Remove(max);
+            numbers.Remove(min);
+        }
+
+        foreach (int x in numbers)
+        {
+            Console.WriteLine(x);
+        }
         break;
 }
