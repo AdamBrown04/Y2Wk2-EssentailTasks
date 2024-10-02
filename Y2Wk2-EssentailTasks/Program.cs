@@ -1,6 +1,7 @@
 ﻿using System;
+using Y2Wk2_EssentailTasks;
 
-Console.WriteLine("What program do you want to run? \n1)guest list \n2)English to French translator \n3)Compare lists \n4)Remove outside 3 numbers");
+Console.WriteLine("What program do you want to run? \n1)guest list \n2)English to French translator \n3)Compare lists \n4)Remove outside 3 numbers \n5)baby DVLA");
 int option = Convert.ToInt32(Console.ReadLine());
 
 Console.Clear();
@@ -223,6 +224,43 @@ switch (option)
         foreach (int x in numbers)
         {
             Console.WriteLine(x);
+        }
+        break;
+    case 5:
+        Dictionary<string, Car> DVLAness = new Dictionary<string, Car>();
+
+        Car car1 = new Car();
+        car1.GetMake("Kia");
+        car1.GetModel("Cee'd");
+        car1.GetRegPlate("PK10 RBO");
+        car1.GetYoM(2010);
+        DVLAness.Add("PK10 RBO", car1);
+        Car car2 = new Car();
+        car1.GetMake("Ford");
+        car1.GetModel("Mondeo");
+        car1.GetRegPlate("AH14 CHU");
+        car1.GetYoM(2014);
+        DVLAness.Add("AH14 CHU", car2);
+        Car car3 = new Car();
+        car1.GetMake("Renault");
+        car1.GetModel("Clio");
+        car1.GetRegPlate("BA72 GTU");
+        car1.GetYoM(2022);
+        DVLAness.Add("BA72 GTU", car3);
+
+        Console.Write("Enter number plate: ");
+        string numPlate = Console.ReadLine();
+        if (DVLAness.ContainsKey(numPlate))
+        {
+            Car carX = DVLAness[numPlate];
+            carX.ViewMake();
+            carX.ViewModel();
+            carX.ViewRegPlate();
+            carX.ViewYoM();
+        }
+        else
+        {
+            Console.WriteLine("That car does not exist");
         }
         break;
 }
