@@ -1,7 +1,7 @@
 ﻿using System;
 using Y2Wk2_EssentailTasks;
 
-Console.WriteLine("What program do you want to run? \n1)guest list \n2)English to French translator \n3)Compare lists \n4)Remove outside 3 numbers \n5)baby DVLA");
+Console.WriteLine("What program do you want to run? \n1)guest list \n2)English to French translator \n3)Compare lists \n4)Remove outside 3 numbers \n5)baby DVLA \n6)Social event vote");
 int option = Convert.ToInt32(Console.ReadLine());
 
 Console.Clear();
@@ -226,6 +226,7 @@ switch (option)
             Console.WriteLine(x);
         }
         break;
+        //unsure why program isn't working correctly
     case 5:
         Dictionary<string, Car> DVLAness = new Dictionary<string, Car>();
 
@@ -262,5 +263,30 @@ switch (option)
         {
             Console.WriteLine("That car does not exist");
         }
+        break;
+    case 6:
+        Console.WriteLine("When you want the program to finish enter END");
+        Dictionary<string, int> eventVote = new Dictionary<string, int>();
+
+        while (true)
+        {
+            Console.Write("Enter an event you would like to do: ");
+            string userInput = Console.ReadLine().ToUpper();
+
+            if (userInput == "END")
+            {
+                break;
+            }
+            else if (eventVote.ContainsKey(userInput))
+            {
+                eventVote[userInput] += 1;
+            }
+            else if(eventVote.Count == 0 || !eventVote.ContainsKey(userInput))
+            {
+                eventVote.Add(userInput, 1);
+            }
+        }
+
+        
         break;
 }
